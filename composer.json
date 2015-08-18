@@ -1,7 +1,7 @@
 {
     "name": "ericmuigai/pesapal",
-    "description": "This is a Pesapal package for Laravel 4.1 .Please test it first before deploying",
-    "keywords": ["pesa","pesapal","kenya","laravel","payments"],
+    "description": "This is a Pesapal package for Laravel 5.",
+    "keywords": ["pesa","pesapal","Kenya","laravel","payments"],
     "authors": [
         {
             "name": "eric",
@@ -10,12 +10,9 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "4.1.*"
+        "illuminate/support": "~5.0"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-0": {
             "Ericmuigai\\Pesapal\\": "src/"
         }

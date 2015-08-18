@@ -1,14 +1,11 @@
-<?php
+<?php namespace Ericmuigai\Pesapal\Oauth;
+
+use Exception;
+
 /**
- * Created by PhpStorm.
- * User: eric
- * Date: 6/13/14
- * Time: 2:09 AM
+ * Class OAuthException
+ * @package Ericmuigai\Pesapal\Oauth
  */
-
-namespace Ericmuigai\Pesapal\Oauth;
-
-
-class OAuthException extends Exception {
-    // pass
+class OAuthException extends Exception
+{
 }

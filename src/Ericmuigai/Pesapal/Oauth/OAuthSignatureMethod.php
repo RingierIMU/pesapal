@@ -1,16 +1,13 @@
-<?php
+<?php namespace Ericmuigai\Pesapal\Oauth;
+
 /**
- * Created by PhpStorm.
- * User: eric
- * Date: 6/13/14
- * Time: 2:04 AM
+ * Class OAuthSignatureMethod
+ * @package Ericmuigai\Pesapal\Oauth
  */
-
-namespace Ericmuigai\Pesapal\Oauth;
-
-
-class OAuthSignatureMethod {
-    public function check_signature(&$request, $consumer, $token, $signature) {
+class OAuthSignatureMethod
+{
+    public function check_signature(&$request, $consumer, $token, $signature)
+    {
         $built = $this->build_signature($request, $consumer, $token);
         return $built == $signature;
     }

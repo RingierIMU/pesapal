@@ -1,25 +1,24 @@
-<?php
+<?php namespace Ericmuigai\Pesapal\Oauth;
+
 /**
- * Created by PhpStorm.
- * User: eric
- * Date: 6/13/14
- * Time: 2:03 AM
+ * Class OAuthConsumer
+ * @package Ericmuigai\Pesapal\Oauth
  */
-
-namespace Ericmuigai\Pesapal\Oauth;
-
-
-class OAuthConsumer {
+class OAuthConsumer
+{
     public $key;
+
     public $secret;
 
-    function __construct($key, $secret, $callback_url=NULL) {
+    public function __construct($key, $secret, $callback_url = null)
+    {
         $this->key = $key;
         $this->secret = $secret;
         $this->callback_url = $callback_url;
     }
 
-    function __toString() {
+    public function __toString()
+    {
         return "OAuthConsumer[key=$this->key,secret=$this->secret]";
     }
 }

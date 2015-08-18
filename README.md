@@ -1,11 +1,10 @@
 Pesapal package for Laravel
 =======
 <h2>Introduction</h2>
-This is a Laravel 4.2 pesapal package.
+This is a Laravel 5 pesapal package.
 I provided this package as to help since pesapal do not have a package for Laravel.
 Pesapal do not have a way to test this so I guess you will have to send money
 payments to test
-<em>For those using Laravel 5, Please mail me so I can get to update it. I have not gotten the chance to do so. Thanks
 <h2>Installation</h2>
 add <pre>"ericmuigai/pesapal": "2.*@dev"</pre> to your composer.json and then <pre>composer update</pre>
 this will install the package
@@ -15,40 +14,6 @@ then migrate the package table by using <pre>php artisan migrate --package=ericm
 Go to your pesapal account and in the ipn url enter <pre>yoursite.com/listenipn</pre> or or the url to your public path/listenipn<br/>
 You should now find the config.php in the <pre>app/packages/ericmuigai/pesapal </pre>
 
-
-<h2>Configuration</h2>
-This is what you should see in the config.php
-<pre>
-/**
- * this settings are needed in order to work with pesapal
- * enabled(bool) -if true sets the pesapal to live instead of demo website that was not functioning at the time of writing this package
- * consumer_key the consumer key gotten from the pesapal website
- * consumer_secret- The consumer secret gotten from the pesapal website
- * controller - This is the controller that will be called if the status is valid,
- * please note the method that will be called will be updateItem and should be static that is update($key,$reference)
- * Key- the key to protect the method from being called elsewhere
- * redirectTo - the link to where your thankyou page is
- * email - Your email address where you will be emailed on complete transaction
- * name - your name
- * currency - the currency that will be used on payment
- *
- */
-return array(
-
-    'enabled' => true,
-    'consumer_key' => "",
-    'consumer_secret'=>"",
-    'controller'=>"YourController",
-    'key'=>"12345",
-    'redirectTo'=>"/",
-    'email'=>"your@email.com",
-    'mail'=>true,
-    'name'=>"Admin",
-    'currency'=>"KES",
-
-);
-</pre>
-You are now set once the right info is entered.
 <h2>How to use</h2>
 Now you should be able to call the <pre>Pesapal::Iframe($array)</pre>
 from any view you would like the iframe to appear.
