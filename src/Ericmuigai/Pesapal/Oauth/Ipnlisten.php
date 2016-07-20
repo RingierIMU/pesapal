@@ -2,9 +2,7 @@
 
 use Oneafricamedia\Core\Services\PaymentService;
 use OAuthException;
-use Config;
 use Input;
-use Log;
 
 /**
  * Class Ipnlisten
@@ -12,17 +10,26 @@ use Log;
  */
 class Ipnlisten
 {
+    /**
+     * @var PaymentService
+     */
+    protected $paymentService;
+
+    /**
+     * @param PaymentService $paymentService
+     */
     public function __construct(
         $consumer_key,
         $consumer_secret,
-        $status_request_api
+        $status_request_api,
+        PaymentService $paymentService
     ) {
         // Parameters sent to you by PesaPal IPN
         $pesapalNotification = Input::get('pesapal_notification_type');
         $pesapalTrackingId = Input::get('pesapal_transaction_tracking_id');
         $pesapal_merchant_reference = Input::get('pesapal_merchant_reference');
         $signature_method = new OAuthSignatureMethodHmacSha1();
-        $paymentService = new PaymentService;
+        $this->paymentService = $paymentService;
 
         if ($pesapalNotification == "CHANGE" && $pesapalTrackingId!='') {
 
@@ -59,8 +66,7 @@ class Ipnlisten
 
                 //transaction status
                 $elements = preg_split("/=/", substr($response, $header_size));
-
-                $paymentService->respondToPaymentNotification(
+                $this->paymentService->respondToPaymentNotification(
                     $elements,
                     $pesapal_merchant_reference,
                     $pesapalNotification,
