@@ -3,6 +3,7 @@
 use Oneafricamedia\Core\Services\PaymentService;
 use OAuthException;
 use Input;
+use Log;
 
 /**
  * Class Ipnlisten
@@ -66,6 +67,7 @@ class Ipnlisten
 
                 //transaction status
                 $elements = preg_split("/=/", substr($response, $header_size));
+                Log::info("Pesapal Status update fetched for Order : {$pesapal_merchant_reference} ", ['elements'=>$elements]);
                 $this->paymentService->respondToPaymentNotification(
                     $elements,
                     $pesapal_merchant_reference,
