@@ -2,7 +2,6 @@
 
 use Oneafricamedia\Core\Services\PaymentService;
 use OAuthException;
-use Input;
 use Log;
 
 /**
@@ -26,9 +25,9 @@ class Ipnlisten
         PaymentService $paymentService
     ) {
         // Parameters sent to you by PesaPal IPN
-        $pesapalNotification = Input::get('pesapal_notification_type');
-        $pesapalTrackingId = Input::get('pesapal_transaction_tracking_id');
-        $pesapal_merchant_reference = Input::get('pesapal_merchant_reference');
+        $pesapalNotification = request()->get('pesapal_notification_type');
+        $pesapalTrackingId = request()->get('pesapal_transaction_tracking_id');
+        $pesapal_merchant_reference = request()->get('pesapal_merchant_reference');
         $signature_method = new OAuthSignatureMethodHmacSha1();
         $this->paymentService = $paymentService;
 
