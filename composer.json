@@ -1,7 +1,13 @@
 {
     "name": "ericmuigai/pesapal",
     "description": "This is a Pesapal package for Laravel 5.",
-    "keywords": ["pesa","pesapal","Kenya","laravel","payments"],
+    "keywords": [
+        "pesa",
+        "pesapal",
+        "Kenya",
+        "laravel",
+        "payments"
+    ],
     "authors": [
         {
             "name": "eric",
@@ -19,7 +25,9 @@
     },
     "extra": {
         "component": "package",
-        "frameworks": ["Laravel 5.0"],
+        "frameworks": [
+            "Laravel 5.0"
+        ],
         "versions": {
             "1": "1.1/master",
             "2": "master"
